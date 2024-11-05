@@ -70,6 +70,22 @@
     #botaoGrupo:hover {
         background: linear-gradient(135deg, #ffcc99 0%, #ffa3e3 100%); /* Usar background também no hover */
     }
+
+    .download-link {
+            display: inline-block;
+            width: 48%;
+            text-align: center;
+            padding: 10px;
+            background-color: #d9534f;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .download-link:hover {
+            background-color: #c9302c;
+        }
     </style>
 </head>
 <body>
@@ -149,7 +165,13 @@
         <button type="button" onclick="pedirContribuicao()">Enviar</button>
     </form>
 </div>
-
+    
+    <!-- Botões ao lado -->
+    <div class="botao-container">
+        <button id="botao_pdf">Baixe o pdf</button>
+    </div>
+</div>
+</div>
 <script>
     function analisarRespostas(formId) {
         const form = document.getElementById(formId);
@@ -226,6 +248,15 @@
     function pedirContribuicao() {
         alert("Obrigado pelo interesse em contribuir! Nossa equipe entrará em contato.");
     }
+
+
+
+    document.getElementById('botao_pdf').addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.href = 'Apoio-Psicologico-para-Vitimas-de-Enchentes.pdf'; // Caminho relativo do PDF
+        link.download = 'Apoio-Psicologico-para-Vitimas-de-Enchentes.pdf'; // Nome do arquivo a ser baixado
+        link.click();
+    });
 </script>
 
 </body>
