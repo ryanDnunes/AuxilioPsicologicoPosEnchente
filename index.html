@@ -163,13 +163,22 @@
     <h2>3. Área para Afiliados</h2>
     <form id="formAfiliados">
         <div class="question">
-            <label>Você gostaria de ajudar com doações ou apoio? (Marque todas as opções que se aplicam)</label><br>
-            <input type="checkbox" id="ajudaDoacao" value="doacao"> Doação<br>
-            <input type="checkbox" id="ajudaPsicologo" value="psicologo"> Apoio psicológico<br>
-            <input type="checkbox" id="ajudaGrupo" value="grupo"> Ajudar em grupo de apoio no WhatsApp<br>
+            <label for="nomeAfiliado">Nome:</label>
+            <input type="text" id="nomeAfiliado" required><br>
+            <label for="cpfAfiliado">CPF:</label>
+            <input type="text" id="cpfAfiliado" required><br>
+            <label for="localizaco">Sua localização:</label>
+            <input type="text" id="emailAfiliado" required><br>
+    
+            <label for="assuntoAfiliado">O que deseja doar?(Especifique):</label>
+            <input type="text" id="assuntoAfiliado" required><br>
+    
+
         </div>
-        <button type="button" onclick="pedirContribuicao()">Enviar</button>
+    
+        <button type="button" onclick="contato_afiliado()">Enviar</button>
     </form>
+    
 </div>
     
     <!-- Botões ao lado -->
@@ -251,9 +260,28 @@
         }
     }
 
-    function pedirContribuicao() {
-        alert("Obrigado pelo interesse em contribuir! Nossa equipe entrará em contato.");
+
+    function contato_afiliado() {
+    const nome = document.getElementById("nomeAfiliado").value;
+    const assunto = document.getElementById("assuntoAfiliado").value;
+    const cpf = document.getElementById("cpfAfiliado").value;
+    const email = document.getElementById("emailAfiliado").value;
+
+    // Verifique se todos os campos foram preenchidos
+    if (nome && assunto && cpf) {
+        // Cria a mensagem formatada
+        const mensagem = `Nome: ${nome}%0aAssunto: ${assunto}%0aCPF: ${cpf}`;
+        const whatsappLink = `https://wa.me/5551985109343?text=${mensagem}`;
+
+        // Abre o link do WhatsApp com a mensagem
+        window.open(whatsappLink);
+    } else {
+        alert("Por favor, preencha todos os campos.");
     }
+}
+
+
+  
 
 
 
